@@ -29,18 +29,18 @@ class Validador{
                 $errores["repassword"]="Las contraseñas no coinciden";
             }
         }
-        if($usuario->getAvatar()!=null){
-            if($_FILES["avatar"]["error"]!=0){
-                $errores["avatar"]="Debe adjuntar una imagen";
-            }else{
+        if(isset($_FILES["avatar"]["size"])){
+            if($_FILES["avatar"]["size"] != 0){
+                if($_FILES["avatar"]["error"]!=0){
+                    $errores["avatar"]="Error al cargar imagen";
+                }
                 $nombre = $_FILES["avatar"]["name"];
                 $ext = pathinfo($nombre,PATHINFO_EXTENSION);
                 if($ext != "png" && $ext != "jpg"){
-                    $errores["avatar"]="Debe seleccionar archivo png ó jpg";
+                    $errores["avatar"]="Debe seleccionar un archivo png o jpg";
                 }
             }
         }
-    
         return $errores;
     }
     //Metodo creado para validar el login del usuario
@@ -60,6 +60,10 @@ class Validador{
         }
     
         return $errores;
+    }
+    private function validateAvatar($file)
+    {
+
     }
     //Método para validar si el usuario desea recuperar su contraseña
     public function validacionOlvide($usuario){

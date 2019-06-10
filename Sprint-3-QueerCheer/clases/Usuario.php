@@ -4,13 +4,19 @@ class Usuario{
     private $email;
     private $password;
     private $repassword;
-    private $avatar;
-    public function __construct($email,$password,$repassword=null, $nombre=null,$avatar=null){
+    private $avatar = null;
+
+    public function __construct(
+       string $email,
+       string $password,
+       string $repassword=null, 
+       string $nombre=null
+    )
+    {
         $this->nombre = $nombre;
         $this->email = $email;
         $this->password = $password;
         $this->repassword = $repassword;
-        $this->avatar = $avatar;
     }
     public function getNombre(){
         return $this->nombre;
