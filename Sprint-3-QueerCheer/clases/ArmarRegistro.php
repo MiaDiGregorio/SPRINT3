@@ -14,7 +14,7 @@ class ArmarRegistro{
         return $avatar;
     }
             
-    public function armarUsuario($registro,$avatar){
+    public function armarUsuario($registro){
         $usuario = [
             "nombre"=>$registro->getNombre(),
             "email"=>$registro->getEmail(),

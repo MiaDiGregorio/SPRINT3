@@ -7,8 +7,21 @@ require_once("clases/BaseDatos.php");
 require_once("clases/BaseJSON.php");
 require_once("clases/Encriptar.php");
 require_once("clases/Autenticador.php");
+//require_one("clases/BaseMYSQL.php");
+//require_one("clases/Querys.php");
+
+//declaro las variables
+//$host = "localhost";
+//$bd = "movies_db";
+//$usuario = "root";
+//$password = "root";
+//$puerto = "33064";
+//$charset = "utf8mb4";
+
 
 $validar = new Validador();
 $registro = new ArmarRegistro();
 $json = new BaseJSON("usuarios.json");
 Autenticador::iniciarSession();
+
+//$pdo = BaseMYSQL::conexion();
